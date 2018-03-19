@@ -18,11 +18,19 @@ if(request.getParameter("cambiar") != null){
 	libro.setTitulo(request.getParameter("titulo"));
 	LibroModelo libroModelo = new LibroModelo();
 	libroModelo.update(libro);
-	out.print();
+	
+	out.print(" <div class='alert alert-success'>" +
+			 " <strong><span class='glyphicon glyphicon-ok' aria-hidden='true'></span>"+
+			"  </strong> Los cambios se han guardado correctamente. </div>");
+	
 }else{
 	
 	
 %>
+<div class="alert alert-danger">
+  <strong><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+  </strong> Se ha encontrado un error.
+</div>
 
 <form action="#" method="POST">
 	<input type="hidden" name="id" value="<%=request.getParameter("idlibro")%>">
