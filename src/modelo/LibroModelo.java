@@ -11,6 +11,7 @@ public class LibroModelo extends Conector{
 	public ArrayList<Libro> selectAll(){
 		// Creamos el arraylist de tipo libro en donde guardaremos los libros
 		ArrayList<Libro> arraia = new ArrayList<Libro>();
+		PrestamoModelo prestamoModelo = new PrestamoModelo();
 		PreparedStatement pst;
 		try {
 			//Creamos el statement para hacer la consulta
@@ -27,6 +28,7 @@ public class LibroModelo extends Conector{
 				nuevo.setAutor(rs.getString("autor"));
 				nuevo.setTitulo(rs.getString("titulo"));
 				nuevo.setPortada("portada");
+				nuevo.setPrestamos(prestamoModelo.prestamosDelLibro(nuevo));
 				arraia.add(nuevo);
 			}
 			// Devolvemos el arraylist rellenado con la informacion de la consulta

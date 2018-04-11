@@ -12,6 +12,8 @@ public class Usuario {
 	private String dni;
 	private Date fechaNacimiento;
 	private ArrayList<Prestamo> prestamos;
+	private String contrasena;
+	private String rol;
 	
 	
 	
@@ -59,6 +61,17 @@ public class Usuario {
 	public void setFechaNacimiento(Date fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
-	
+	public String getContrasena() {
+		return contrasena;
+	}
+	public void setContrasena(String contrasena) {
+		this.contrasena = contrasena;
+	}
+	public String getRol() {
+		return rol;
+	}
+	public void setRol(String rol) {
+		this.rol = rol;
+	}
 	
 }
