@@ -1,16 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-    <%
-    String nombre = request.getParameter("nombre");
-    String contrasena = request.getParameter("contrasena");
-    
-    
-    
-    if(nombre.equals("ibai") && contrasena.equals("1234")){
-    	session.setAttribute("iniciado", "si");
-    	response.sendRedirect("sistema.jsp");
-    }else{
-    	response.sendRedirect("login_form.jsp");
-    }
-    
-    %>
+	pageEncoding="ISO-8859-1"%>
+<%@ page import="modelo.*"%>
+<%
+	String dni = request.getParameter("dni");
+	String contrasena = request.getParameter("contrasena");
+	UsuarioModelo usuarioModelo = new UsuarioModelo();
+	Usuario usuario = usuarioModelo.selectPorDni(dni);
+	if (usuario != null && contrasena.equals(usuario.getContrasena())) {
+		session.setAttribute("usuario", usuario);
+		response.sendRedirect("biblioteca.jsp");
+	} else {
+		response.sendRedirect("index.jsp");
+	}
+%>
