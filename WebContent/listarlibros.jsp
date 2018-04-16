@@ -36,7 +36,7 @@ Iterator<Libro> i = libros.iterator();
 out.print("<thead><tr> <th> ID </th><th> Titulo </th><th> Autor </th><th>Informacion</th><th>Actualizar</th></tr></thead><tbody>");
 while(i.hasNext()){
 	Libro libro = i.next();
-	out.print( "<tr><td>" + libro.getId()+"</td><td>"+ libro.getTitulo() +"</td><td>"+ libro.getAutor()+"</td><td>" + "<a href='plantillalibro.jsp?id="+libro.getId()+"'>Mostrar</a>" +"</td> <td>" + "<a href='cambiarlibro.jsp?idlibro="+libro.getId()+"'>Cambiar</a>" +"</td> </tr>" );
+	out.print( "<tr><td>" + libro.getId()+"</td><td>"+ libro.getTitulo() +"</td><td>"+ libro.getAutor()+"</td><td>" + "<a href='book.jsp?id="+libro.getId()+"'>Mostrar</a>" +"</td> <td>" + "<a href='cambiarlibro.jsp?idlibro="+libro.getId()+"'>Cambiar</a>" +"</td> </tr>" );
 }
 %>
 </tbody>

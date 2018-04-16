@@ -1,6 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page import="modelo.*"%>
+<%
+
+int id = Integer.parseInt(request.getParameter("id"));
+LibroModelo libroModelo = new LibroModelo();
+Libro libro = new Libro();
+libro = libroModelo.select(id);
+
+%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -14,28 +23,12 @@ width:100px;
 height:200px;
 }
 </style>
-<title>Plantilla libro</title>
+<title><%=libro.getTitulo()%></title>
 </head>
 <body>
-<%@ page import="modelo.*"%>
-<%
 
-int id = Integer.parseInt(request.getParameter("id"));
-LibroModelo libroModelo = new LibroModelo();
-Libro libro = new Libro();
-libro = libroModelo.select(id);
 
-%>
-<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
-      <h5 class="my-0 mr-md-auto font-weight-normal">Zubiri Manteo</h5>
-      <nav class="my-2 my-md-0 mr-md-3">
-        <a class="p-2 text-dark" href="#">Features</a>
-        <a class="p-2 text-dark" href="#">Enterprise</a>
-        <a class="p-2 text-dark" href="#">Support</a>
-        <a class="p-2 text-dark" href="#">Pricing</a>
-      </nav>
-      <a class="btn btn-outline-primary" href="#">Iniciar Sesion</a>
-    </div>
+<jsp:include page="navbar.html"></jsp:include>
 <a href="listarlibros.jsp"><button type="button" class="btn btn-secondary">Volver a atras</button></a>
 
 

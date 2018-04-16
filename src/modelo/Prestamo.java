@@ -1,5 +1,6 @@
 package modelo;
 
+import java.util.Calendar;
 import java.util.Date;
 
 public class Prestamo {
@@ -45,8 +46,17 @@ public class Prestamo {
 	public boolean isEntregado() {
 		return entregado;
 	}
-	public void setEntregado(boolean entragado) {
-		this.entregado = entragado;
+	public void setEntregado(boolean entregado) {
+		this.entregado = entregado;
+	}
+	public Date fechaLimite(Date fechaPrestamo) {
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(fechaPrestamo);
+		cal.add(Calendar.DATE, 21);
+		Date fechaLimite = new Date();
+		fechaLimite = cal.getTime();
+		return fechaLimite;
+
 	}
 	
 	
